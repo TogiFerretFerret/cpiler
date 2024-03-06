@@ -14,7 +14,13 @@ textconv.convert("Time is up!", "timeup.mp3")
 textconv.convert("Correct!", "correct.mp3")
 textconv.convert("Incorrect!", "incorrect.mp3")
 textconv.convert("Early answer!", "earlyanswer.mp3")
+def saypts():
+    textconv.convert(f"You have {pts} points.", "points.mp3")
+    player.play("points.mp3")
 def doquestion():
+    global pts
+    # Say num pts
+    saypts()
     # Get the question
     jsond = interman.sendGet("https://scibowldb.com/api/questions/random").json()
     parser = qparse.QParser(jsond)
@@ -46,6 +52,7 @@ def doquestion():
     if inp == "y":
         pts += tossup.ptworth
         player.play("correct.mp3")
+        saypts()
         # Form bonus
         qtext = questionformer.createQText(bonus, bonus.format, bonus.question)
         qanswer = questionformer.createQAnswer(bonus.answer)
@@ -72,12 +79,12 @@ def doquestion():
         if inp == "y":
             pts += bonus.ptworth
             player.play("correct.mp3")
+            saypts()
         else:
             player.play("incorrect.mp3")
+            saypts()
     else:
         player.play("incorrect.mp3")
         if earlyanswer:
             pts -= tossup.ptworth
-    
-        
-doquestion()
+        saypts()
