@@ -202,6 +202,10 @@ def getchars(
         return out.encode()
 def waitforreturn():
     """Waits for enter key/return key"""
-    while True:
-        if sys.stdin.read(1).encode() == KEYS["ENTER"]:
-            break
+    internalcounter = 0
+    keys: list[str] = []
+    while internalcounter != 1:
+        key = get()  # type: str#type: ignore
+        if key.encode() == KEYS["ENTER"]:
+            internalcounter = len(keys)
+            return

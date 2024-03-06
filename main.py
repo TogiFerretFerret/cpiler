@@ -20,13 +20,13 @@ def doquestion():
     qtext = questionformer.createQText(tossup, tossup.format, tossup.question)
     qanswer = questionformer.createQAnswer(tossup.answer)
     # Play question
-    #textconv.convert(qtext, "question.mp3")
-    #player.play("question.mp3")
+    textconv.convert(qtext, "question.mp3")
+    player.play("question.mp3")
     # Form answer
-    #time.sleep(5)
+    time.sleep(5)
     player.play("timeup.mp3")
     # Wait for kp
-    
+    inputmanager.waitforreturn()
     textconv.convert(qanswer, "answer.mp3")
     player.play("answer.mp3")
 doquestion()
