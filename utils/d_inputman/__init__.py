@@ -41,6 +41,7 @@ KEYS: dict = {
     "PAGE_DOWN": b"\x1b[6~",
     "TAB": b"\t",
     "ENTER": b"\r",
+    "RETURN": b"\n"
 }
 
 
@@ -199,3 +200,8 @@ def getchars(
         return out
     else:
         return out.encode()
+def waitforreturn():
+    """Waits for enter key/return key"""
+    while True:
+        if sys.stdin.read(1).encode() == KEYS["ENTER"]:
+            break

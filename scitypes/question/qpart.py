@@ -9,7 +9,7 @@ class QuestionPart:
         correct (bool): Indicates whether the answer is correct or not.
     """
 
-    def __init__(self, format: str, question: str, answer: str):
+    def __init__(self, format: str, question: str, answer: str, type: str):
         """
         Initializes a new instance of the QuestionPart class.
 
@@ -22,7 +22,7 @@ class QuestionPart:
         self.question = question
         self.answer = answer
         self.correct = False
-
+        self.type = type
     def answer(self, gotcorrect: bool):
         """
         Sets the correctness of the answer.

@@ -35,7 +35,7 @@ class QFormer(sciparse.qutility.QUtility):
             str: The formatted question text.
 
         """
-        return f'''{type}\n{format}\n{question}'''
+        return f'''{type.type}\n{format}\n{question}'''
 
     def createQAnswer(self, answer: str) -> str:
         """

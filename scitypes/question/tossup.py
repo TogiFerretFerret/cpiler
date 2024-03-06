@@ -20,4 +20,4 @@ class Tossup(scitypes.question.qpart.QuestionPart):
         self.answered = False
         self.correct = False
         self.ptworth = 5
-        super().__init__(format, question, answer)
+        super().__init__(format, question, answer, "Tossup")

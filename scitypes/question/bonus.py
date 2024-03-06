@@ -23,4 +23,4 @@ class Bonus(scitypes.question.qpart.QuestionPart):
         self.answered = False
         self.correct = False
         self.ptworth = 10
-        super().__init__(format, question, answer)
+        super().__init__(format, question, answer, "Bonus")
