@@ -88,3 +88,7 @@ def doquestion():
         if earlyanswer:
             pts -= tossup.ptworth
         saypts()
+
+while True:
+    doquestion()
+    inputmanager.waitforreturn()
