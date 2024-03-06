@@ -29,9 +29,11 @@ def doquestion():
     # Form question
     qtext = questionformer.createQText(tossup, tossup.format, tossup.question)
     qanswer = questionformer.createQAnswer(tossup.answer)
+    print(parser.uri)
     # Play question
     textconv.convert(qtext, "question.mp3")
     player.play("question.mp3")
+    print(qtext)
     # Form answer
     earlyanswer = False
     for i in range(50):
@@ -47,6 +49,7 @@ def doquestion():
     inputmanager.waitforreturn()
     textconv.convert(qanswer, "answer.mp3")
     player.play("answer.mp3")
+    print(qanswer)
     # Wait for kp
     inp = inputmanager.getchars(chars=["y", "n"])
     if inp == "y":
@@ -59,6 +62,7 @@ def doquestion():
         # Play bonus
         textconv.convert(qtext, "question.mp3")
         player.play("question.mp3")
+        print(qtext)
         # Form answer
         earlyanswer = False
         for i in range(20):
@@ -74,6 +78,7 @@ def doquestion():
         inputmanager.waitforreturn()
         textconv.convert(qanswer, "answer.mp3")
         player.play("answer.mp3")
+        print(qanswer)
         # Wait for kp
         inp = inputmanager.getchars(chars=["y", "n"])
         if inp == "y":
